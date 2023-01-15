@@ -1,5 +1,5 @@
 import React from 'react'
-import "./assets/base.css"
+import "./assets/base.less"
 import {Button} from 'antd'
 import {Outlet} from 'react-router-dom'
 
