@@ -1,9 +1,11 @@
 import React from 'react'
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
 import './less/Login.less'
+import {Link} from 'react-router-dom'
 import logoImg from '../assets/logo.png'
 
-export default function login() {
+export default function Login() {
   const onFinish = (values) => {
     console.log('Success:', values);
   };
@@ -16,12 +18,7 @@ export default function login() {
       <img src={logoImg} alt='logo' />
       <Form
       name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
+      
       initialValues={{
         remember: true,
       }}
@@ -30,7 +27,7 @@ export default function login() {
       autoComplete="off"
     >
       <Form.Item
-        label="Username"
+        
         name="username"
         rules={[
           {
@@ -39,11 +36,11 @@ export default function login() {
           },
         ]}
       >
-        <Input />
+        <Input size='large' prefix={<UserOutlined />}
+         placeholder='please input your username'/>
       </Form.Item>
 
       <Form.Item
-        label="Password"
         name="password"
         rules={[
           {
@@ -52,28 +49,17 @@ export default function login() {
           },
         ]}
       >
-        <Input.Password />
+        <Input.Password size='large' prefix={<LockOutlined className="site-form-item-icon" />}
+          placeholder='please input your password'/>
       </Form.Item>
 
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Checkbox>Remember me</Checkbox>
+      <Form.Item>
+        <Link to="/register" >No account? Go to Register.</Link>
       </Form.Item>
 
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button type="primary" htmlType="submit">
-          Submit
+      <Form.Item>
+        <Button size='large' type="primary" htmlType="submit" block>
+          Login
         </Button>
       </Form.Item>
     </Form>
