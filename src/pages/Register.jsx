@@ -4,6 +4,7 @@ import { Button, Form, Input } from 'antd';
 import './less/Login.less'
 import {Link} from 'react-router-dom'
 import logoImg from '../assets/logo.png'
+import { RegisterApi } from '../request/api';
 
 export default function Register() {
   const onFinish = (values) => {
