@@ -8,11 +8,17 @@ import { RegisterApi } from '../request/api';
 
 export default function Register() {
   const onFinish = (values) => {
-    console.log('Success:', values);
+    //console.log('Success:', values);
+    RegisterApi({
+      username:values.username,
+      password:values.password
+    }).then(res=>{
+      console.log(res)
+    })
   };
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
+  // const onFinishFailed = (errorInfo) => {
+  //   console.log('Failed:', errorInfo);
+  // };
   return (
     <div className="login">
       <div className='login_box'>
@@ -24,7 +30,7 @@ export default function Register() {
         remember: true,
       }}
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
+      //onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       <Form.Item
